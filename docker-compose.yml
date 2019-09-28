@@ -9,6 +9,7 @@ services:
       - "24225:24225/udp"
     volumes:
       - ./fluentd/fluent.conf:/fluentd/etc/fluent.conf
+      - ./dados/:/dados/
   nginx-syslog:
     image: nginx:stable
     ports:

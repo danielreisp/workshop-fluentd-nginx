@@ -5,11 +5,19 @@ services:
     ports:
       - "24224:24224"
       - "24224:24224/udp"
+      - "24225:24225"
+      - "24225:24225/udp"
     volumes:
       - ./fluentd/fluent.conf:/fluentd/etc/fluent.conf
-  syslog:
+  nginx-syslog:
     image: nginx:stable
     ports:
       - "8080:80"
     volumes:
       - ./nginx-syslog/default.conf:/etc/nginx/conf.d/default.conf
+  nginx-waf:
+    build: ./nginx-waf
+    ports:
+      - "8180:80"
+    volumes:
+      - ./nginx-waf/default.conf:/etc/nginx/conf.d/default.conf

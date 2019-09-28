@@ -1,0 +1,15 @@
+version: "3.7"
+services:
+  agreggrator:
+    build: ./fluentd
+    ports:
+      - "24224:24224"
+      - "24224:24224/udp"
+    volumes:
+      - ./fluentd/fluent.conf:/fluentd/etc/fluent.conf
+  syslog:
+    image: nginx:stable
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx-syslog/default.conf:/etc/nginx/conf.d/default.conf

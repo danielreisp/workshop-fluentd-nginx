@@ -1,8 +1,3 @@
-# workshop-fluentd-nginx
-# workshop-fluentd-nginx
-# workshop-fluentd-nginx
-# workshop-fluentd-nginx
-
 # Parte 1 - Nginx enviando para fluentd através do syslog na porta udp.
 
 ```
